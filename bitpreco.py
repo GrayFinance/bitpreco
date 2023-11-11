@@ -13,4 +13,4 @@ class BitPreco:
     @cached(cache=TTLCache(maxsize=1, ttl=60 * 3.5))
     def get_price(self) -> dict:
         r = self.call("GET", "/btc-brl/ticker")
-        return {"SELL": r["sell"], "BUY": r["buy"]}
+        return {"SELL": r["sell"], "BUY": r["buy"], "RATIO": r["var"]}
