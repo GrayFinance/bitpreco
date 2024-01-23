@@ -9,6 +9,6 @@ class BitPreco:
         response = requests.request(method=method, url=self.url + path)
         return response.json()
 
-    def get_price(self) -> dict:
-        r = self.call("GET", "/btc-brl/ticker")
+    def get_price(self, ticket="btc-brl") -> dict:
+        r = self.call("GET", f"/{ticket}/ticker")
         return {"SELL": r["sell"], "BUY": r["buy"], "RATIO": r["var"]}
